@@ -1,23 +1,29 @@
 
 # coding: utf-8
 
-# # Chapter 5 Getting Started with pandas
+# In[29]:
 
-# ## Introduction to pandas Data Structures
-# ### Series
+get_ipython().magic('load_ext watermark')
+get_ipython().magic('watermark -u -d -v -p numpy,pandas,matplotlib')
 
-# In[1]:
+
+# In[2]:
 
 get_ipython().magic('matplotlib inline')
 
 
-# In[2]:
+# In[3]:
 
 import numpy as np
 import matplotlib.pyplot as plt
 from pandas import Series, DataFrame
 import pandas as pd
 
+
+# # Chapter 5 Getting Started with pandas
+
+# ## Introduction to pandas Data Structures
+# ### Series
 
 # In[3]:
 
@@ -903,3 +909,80 @@ obj.describe()
 
 
 # ### Correlation and Covariance
+
+# `pandas.io.data` は `pandas-datareader` に分離
+# 
+# ```
+# conda install pandas-datareader
+# ```
+# `0.2.1` が入る（最新版は`0.3.0`）
+# 
+# ---
+# 
+# `dict.iteritems()` は Python3 では削除
+# 
+# * `dict.items` を使う?
+
+# ```
+# pydoc -p 1234
+# ```
+# で `localhost:1234` からドキュメントが見られる
+
+# In[11]:
+
+# import pandas.io.data as web
+import pandas_datareader.data as web
+
+
+# In[15]:
+
+all_data = {}
+for ticker in ['AAPL', 'IBM', 'MSFT', 'GOOG']:
+    all_data[ticker] = web.get_data_yahoo(ticker)
+price = DataFrame({tic: data['Adj Close'] for tic, data in all_data.items()})
+volume = DataFrame({tic: data['Volume'] for tic, data in all_data.items()})
+
+
+# percent change
+
+# In[17]:
+
+returns = price.pct_change()
+returns.tail()
+
+
+# correlation (Series)
+
+# In[18]:
+
+returns.MSFT.corr(returns.IBM)
+
+
+# covariance (Series)
+
+# In[19]:
+
+returns.MSFT.cov(returns.IBM)
+
+
+# In[20]:
+
+returns.corr()
+
+
+# In[21]:
+
+returns.cov()
+
+
+# In[22]:
+
+returns.corrwith(returns.IBM)
+
+
+# In[23]:
+
+returns.corrwith(volume)
+
+
+# ### Unique Values, Value Counts, and Membership

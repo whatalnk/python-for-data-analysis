@@ -11746,6 +11746,70 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -u -d -v -p numpy,pandas,matplotlib
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>last updated: 2017-01-17 
+
+CPython 3.5.2
+IPython 5.1.0
+
+numpy 1.11.3
+pandas 0.19.2
+matplotlib 1.5.3
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="k">import</span> <span class="n">Series</span><span class="p">,</span> <span class="n">DataFrame</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11763,35 +11827,6 @@ div#notebook {
 <h2 id="Introduction-to-pandas-Data-Structures">Introduction to pandas Data Structures<a class="anchor-link" href="#Introduction-to-pandas-Data-Structures">&#182;</a></h2><h3 id="Series">Series<a class="anchor-link" href="#Series">&#182;</a></h3>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">pandas</span> <span class="k">import</span> <span class="n">Series</span><span class="p">,</span> <span class="n">DataFrame</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -18861,6 +18896,455 @@ dtype: object</pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Correlation-and-Covariance">Correlation and Covariance<a class="anchor-link" href="#Correlation-and-Covariance">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>pandas.io.data</code> は <code>pandas-datareader</code> に分離</p>
+
+<pre><code>conda install pandas-datareader</code></pre>
+<p><code>0.2.1</code> が入る（最新版は<code>0.3.0</code>）</p>
+<hr>
+<p><code>dict.iteritems()</code> は Python3 では削除</p>
+<ul>
+<li><code>dict.items</code> を使う?</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>pydoc -p 1234</code></pre>
+<p>で <code>localhost:1234</code> からドキュメントが見られる</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import pandas.io.data as web</span>
+<span class="kn">import</span> <span class="nn">pandas_datareader.data</span> <span class="k">as</span> <span class="nn">web</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_data</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;AAPL&#39;</span><span class="p">,</span> <span class="s1">&#39;IBM&#39;</span><span class="p">,</span> <span class="s1">&#39;MSFT&#39;</span><span class="p">,</span> <span class="s1">&#39;GOOG&#39;</span><span class="p">]:</span>
+    <span class="n">all_data</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
+<span class="n">price</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">({</span><span class="n">tic</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">tic</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">all_data</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+<span class="n">volume</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">({</span><span class="n">tic</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">tic</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">all_data</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>percent change</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">returns</span> <span class="o">=</span> <span class="n">price</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="n">returns</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AAPL</th>
+      <th>GOOG</th>
+      <th>IBM</th>
+      <th>MSFT</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-01-09</th>
+      <td>0.009159</td>
+      <td>0.000620</td>
+      <td>-0.011090</td>
+      <td>-0.003183</td>
+    </tr>
+    <tr>
+      <th>2017-01-10</th>
+      <td>0.001009</td>
+      <td>-0.002306</td>
+      <td>-0.012705</td>
+      <td>-0.000319</td>
+    </tr>
+    <tr>
+      <th>2017-01-11</th>
+      <td>0.005373</td>
+      <td>0.003877</td>
+      <td>0.013473</td>
+      <td>0.009103</td>
+    </tr>
+    <tr>
+      <th>2017-01-12</th>
+      <td>-0.004175</td>
+      <td>-0.001919</td>
+      <td>0.001192</td>
+      <td>-0.009179</td>
+    </tr>
+    <tr>
+      <th>2017-01-13</th>
+      <td>-0.001761</td>
+      <td>0.001885</td>
+      <td>-0.003632</td>
+      <td>0.001437</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>correlation (Series)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">returns</span><span class="o">.</span><span class="n">MSFT</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">returns</span><span class="o">.</span><span class="n">IBM</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[18]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.49678673972837339</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>covariance (Series)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">returns</span><span class="o">.</span><span class="n">MSFT</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">returns</span><span class="o">.</span><span class="n">IBM</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>8.6961239530001922e-05</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">returns</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AAPL</th>
+      <th>GOOG</th>
+      <th>IBM</th>
+      <th>MSFT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>AAPL</th>
+      <td>1.000000</td>
+      <td>0.411552</td>
+      <td>0.383898</td>
+      <td>0.393515</td>
+    </tr>
+    <tr>
+      <th>GOOG</th>
+      <td>0.411552</td>
+      <td>1.000000</td>
+      <td>0.402753</td>
+      <td>0.472016</td>
+    </tr>
+    <tr>
+      <th>IBM</th>
+      <td>0.383898</td>
+      <td>0.402753</td>
+      <td>1.000000</td>
+      <td>0.496787</td>
+    </tr>
+    <tr>
+      <th>MSFT</th>
+      <td>0.393515</td>
+      <td>0.472016</td>
+      <td>0.496787</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">returns</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AAPL</th>
+      <th>GOOG</th>
+      <th>IBM</th>
+      <th>MSFT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>AAPL</th>
+      <td>0.000271</td>
+      <td>0.000106</td>
+      <td>0.000076</td>
+      <td>0.000094</td>
+    </tr>
+    <tr>
+      <th>GOOG</th>
+      <td>0.000106</td>
+      <td>0.000247</td>
+      <td>0.000076</td>
+      <td>0.000108</td>
+    </tr>
+    <tr>
+      <th>IBM</th>
+      <td>0.000076</td>
+      <td>0.000076</td>
+      <td>0.000145</td>
+      <td>0.000087</td>
+    </tr>
+    <tr>
+      <th>MSFT</th>
+      <td>0.000094</td>
+      <td>0.000108</td>
+      <td>0.000087</td>
+      <td>0.000212</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">returns</span><span class="o">.</span><span class="n">corrwith</span><span class="p">(</span><span class="n">returns</span><span class="o">.</span><span class="n">IBM</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[22]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>AAPL    0.383898
+GOOG    0.402753
+IBM     1.000000
+MSFT    0.496787
+dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">returns</span><span class="o">.</span><span class="n">corrwith</span><span class="p">(</span><span class="n">volume</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[23]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>AAPL   -0.073683
+GOOG   -0.008532
+IBM    -0.200727
+MSFT   -0.091744
+dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Unique-Values,-Value-Counts,-and-Membership">Unique Values, Value Counts, and Membership<a class="anchor-link" href="#Unique-Values,-Value-Counts,-and-Membership">&#182;</a></h3>
 </div>
 </div>
 </div>
