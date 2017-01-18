@@ -1,10 +1,10 @@
 
 # coding: utf-8
 
-# In[29]:
+# In[12]:
 
 get_ipython().magic('load_ext watermark')
-get_ipython().magic('watermark -u -d -v -p numpy,pandas,matplotlib')
+get_ipython().magic('watermark -u -d -v')
 
 
 # In[2]:
@@ -986,3 +986,9 @@ returns.corrwith(volume)
 
 
 # ### Unique Values, Value Counts, and Membership
+
+# In[14]:
+
+packages = get_ipython().magic('packages_ chap05.py')
+get_ipython().magic('watermark -u -d -v -p $packages')
+
