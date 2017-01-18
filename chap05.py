@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[12]:
+# In[1]:
 
 get_ipython().magic('load_ext watermark')
 get_ipython().magic('watermark -u -d -v')
@@ -928,7 +928,7 @@ obj.describe()
 # ```
 # で `localhost:1234` からドキュメントが見られる
 
-# In[11]:
+# In[4]:
 
 # import pandas.io.data as web
 import pandas_datareader.data as web
@@ -987,8 +987,14 @@ returns.corrwith(volume)
 
 # ### Unique Values, Value Counts, and Membership
 
-# In[14]:
+# In[4]:
 
 packages = get_ipython().magic('packages_ chap05.py')
 get_ipython().magic('watermark -u -d -v -p $packages')
+
+
+# In[5]:
+
+imports = get_ipython().magic('imports_')
+get_ipython().magic('watermark -u -d -v -p $imports')
 
