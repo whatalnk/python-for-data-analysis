@@ -989,11 +989,54 @@ returns.corrwith(volume)
 
 # In[4]:
 
-packages = get_ipython().magic('packages_ chap05.py')
-get_ipython().magic('watermark -u -d -v -p $packages')
+obj = Series(['c', 'a', 'd', 'a', 'a', 'b', 'b', 'c', 'c'])
+uniques = obj.unique()
+uniques
 
 
 # In[5]:
+
+obj.value_counts()
+
+
+# In[7]:
+
+pd.value_counts(obj.values, sort=False)
+
+
+# In[8]:
+
+mask = obj.isin(['b', 'c'])
+mask
+
+
+# In[9]:
+
+obj[mask]
+
+
+# In[10]:
+
+data = DataFrame({'Qu1': [1, 3, 4, 3, 4],
+                  'Qu2': [2, 3, 1, 2, 3],
+                  'Qu3': [1, 5, 2, 4, 4]})
+data
+
+
+# In[12]:
+
+data.apply(pd.value_counts)
+
+
+# In[11]:
+
+result = data.apply(pd.value_counts).fillna(0)
+result
+
+
+# ## Handling Missing Data
+
+# In[13]:
 
 imports = get_ipython().magic('imports_')
 get_ipython().magic('watermark -u -d -v -p $imports')
