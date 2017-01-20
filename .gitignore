@@ -1,3 +1,6 @@
 pydata-book/
 .ipynb_checkpoints/
+some_array.npy
+array_archive.npz
+array_ex.txt
 
