@@ -1036,7 +1036,151 @@ result
 
 # ## Handling Missing Data
 
-# In[13]:
+# In[5]:
+
+string_data = Series(['aardvark', 'artichoke', np.nan, 'avocado'])
+string_data
+
+
+# In[6]:
+
+string_data.isnull()
+
+
+# In[7]:
+
+string_data[0] = None
+string_data.isnull()
+
+
+# ### Filtering Out Missing Data
+
+# In[8]:
+
+from numpy import nan as NA
+
+
+# In[9]:
+
+data = Series([1, NA, 3.5, NA, 7])
+data.dropna()
+
+
+# In[10]:
+
+data[data.notnull()]
+
+
+# In[11]:
+
+data = DataFrame([
+        [1., 6.5, 3.], 
+        [1., NA, NA],
+        [NA, NA, NA], 
+        [NA, 6.5, 3.]
+    ])
+data
+
+
+# In[12]:
+
+cleaned = data.dropna()
+cleaned
+
+
+# In[14]:
+
+data.dropna(how='all')
+
+
+# In[15]:
+
+data[4]= NA
+data
+
+
+# In[16]:
+
+data.dropna(axis=1, how='all')
+
+
+# In[17]:
+
+df = DataFrame(np.random.randn(7, 3))
+df
+
+
+# In[18]:
+
+df.ix[:4, 1] = NA; df.ix[:2, 2] = NA
+df
+
+
+# 3つ以上値が残っているもの
+
+# In[32]:
+
+df.dropna(thresh=3)
+
+
+# ### Filling in Missing Data
+
+# In[20]:
+
+df.fillna(0)
+
+
+# In[34]:
+
+df.fillna({1: 0.5, 2: -1})
+
+
+# In[35]:
+
+_ = df.fillna(0, inplace=True)
+
+
+# In[36]:
+
+df
+
+
+# In[37]:
+
+df = DataFrame(np.random.randn(6, 3))
+df
+
+
+# In[38]:
+
+df.ix[2:, 1] = NA; df.ix[4:, 2] = NA
+df
+
+
+# In[39]:
+
+df.fillna(method='ffill')
+
+
+# In[40]:
+
+df.fillna(method='ffill', limit=2)
+
+
+# In[42]:
+
+data = Series([1., NA, 3.5, NA, 7])
+data
+
+
+# In[43]:
+
+data.fillna(data.mean())
+
+
+# ## Hierarchical Indexing
+
+# In[44]:
 
 imports = get_ipython().magic('imports_')
 get_ipython().magic('watermark -u -d -v -p $imports')
