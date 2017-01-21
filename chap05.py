@@ -1180,6 +1180,97 @@ data.fillna(data.mean())
 
 # ## Hierarchical Indexing
 
+# In[4]:
+
+data = Series(np.random.randn(10),
+              index=[['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'd', 'd'],
+                     [1, 2, 3, 1, 2, 3, 1, 2, 2, 3]])
+data
+
+
+# In[5]:
+
+data.index
+
+
+# In[6]:
+
+data['b']
+
+
+# In[7]:
+
+data['b':'c']
+
+
+# In[8]:
+
+data.ix[['b', 'd']]
+
+
+# In[9]:
+
+data[:, 2]
+
+
+# In[10]:
+
+data.unstack()
+
+
+# In[11]:
+
+data.unstack().stack()
+
+
+# In[12]:
+
+frame = DataFrame(np.arange(12).reshape((4, 3)),
+                  index=[['a', 'a', 'b', 'b'], [1, 2, 1, 2]],
+                  columns=[['Ohio', 'Ohio', 'Colorado'],['Green', 'Red', 'Green']])
+frame
+
+
+# In[14]:
+
+frame.index.names
+
+
+# In[15]:
+
+frame.index.names = ['key1', 'key2']
+frame.index.names
+
+
+# In[16]:
+
+frame.columns.names
+
+
+# In[17]:
+
+frame.columns.names = ['state', 'color']
+frame.columns.names
+
+
+# In[18]:
+
+frame
+
+
+# In[19]:
+
+frame['Ohio']
+
+
+# In[27]:
+
+pd.MultiIndex.from_arrays([['Ohio', 'Ohio', 'Colorado'], ['Green', 'Red', 'Green']],
+                       names=['state', 'color'])
+
+
+# ### Reordering and Sorting Levels
+
 # In[44]:
 
 imports = get_ipython().magic('imports_')
