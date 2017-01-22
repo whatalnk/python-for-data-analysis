@@ -1223,7 +1223,7 @@ data.unstack()
 data.unstack().stack()
 
 
-# In[12]:
+# In[5]:
 
 frame = DataFrame(np.arange(12).reshape((4, 3)),
                   index=[['a', 'a', 'b', 'b'], [1, 2, 1, 2]],
@@ -1236,7 +1236,7 @@ frame
 frame.index.names
 
 
-# In[15]:
+# In[6]:
 
 frame.index.names = ['key1', 'key2']
 frame.index.names
@@ -1247,7 +1247,7 @@ frame.index.names
 frame.columns.names
 
 
-# In[17]:
+# In[7]:
 
 frame.columns.names = ['state', 'color']
 frame.columns.names
@@ -1271,7 +1271,194 @@ pd.MultiIndex.from_arrays([['Ohio', 'Ohio', 'Colorado'], ['Green', 'Red', 'Green
 
 # ### Reordering and Sorting Levels
 
+# In[9]:
+
+frame
+
+
+# In[10]:
+
+frame.swaplevel('key1', 'key2')
+
+
+# In[13]:
+
+frame.index
+
+
+# In[14]:
+
+frame.swaplevel('key1', 'key2').index
+
+
+# In[15]:
+
+frame.sortlevel(1)
+
+
+# In[17]:
+
+frame.sortlevel(0)
+
+
+# In[18]:
+
+frame.swaplevel(0, 1).sortlevel(0)
+
+
+# ### Summary Statistics by Level
+
+# In[19]:
+
+frame.sum(level='key2')
+
+
+# In[20]:
+
+frame.sum(level='color', axis=1)
+
+
+# ### Using a DataFrame’s Columns
+
+# In[21]:
+
+frame = DataFrame({'a': range(7), 
+                   'b': range(7, 0, -1),
+                   'c': ['one', 'one', 'one', 'two', 'two', 'two', 'two'],
+                   'd': [0, 1, 2, 0, 1, 2, 3]})
+frame
+
+
+# In[22]:
+
+frame2 = frame.set_index(['c', 'd'])
+frame2
+
+
+# In[23]:
+
+frame.set_index(['c', 'd'], drop=False)
+
+
+# In[24]:
+
+frame2.reset_index()
+
+
+# ## Other pandas Topics
+# ### Integer Indexing
+
+# index の番号か名前かがわからいので，エラーになる
+
+# In[26]:
+
+ser = Series(np.arange(3.))
+ser
+
+
+# In[ ]:
+
+# error
+# ser[-1]
+
+
+# こちらはならない
+
+# In[27]:
+
+ser2 = Series(np.arange(3.), index=['a', 'b', 'c'])
+ser2
+
+
+# In[28]:
+
+ser2[-1]
+
+
+# In[29]:
+
+ser.ix[:1]
+
+
+# In[31]:
+
+ser3 = Series(range(3), index=[-5, 1, 3])
+ser3
+
+
+# In[33]:
+
+## ser3.iget_value(2) # depricated
+ser3.iloc[2]
+
+
+# or
+
+# In[35]:
+
+ser3.iat[2]
+
+
+# In[36]:
+
+frame = DataFrame(np.arange(6).reshape(3, 2), index=[2, 0, 1])
+frame
+
+
+# In[38]:
+
+# frame.irow(0) # depricated
+frame.iloc[0]
+
+
+# ### Panel Data
+
+# In[39]:
+
+import pandas_datareader.data as web
+
+
+# In[40]:
+
+pdata = pd.Panel(
+    dict(
+        (stk, web.get_data_yahoo(stk)) for stk in ['AAPL', 'GOOG', 'MSFT', 'DELL']))
+pdata
+
+
+# In[41]:
+
+pdata = pdata.swapaxes('items', 'minor')
+pdata
+
+
+# In[42]:
+
+pdata['Adj Close']
+
+
+# In[43]:
+
+pdata.ix[:, '6/1/2012', :]
+
+
 # In[44]:
+
+pdata.ix['Adj Close', '5/22/2012':, :]
+
+
+# In[45]:
+
+stacked = pdata.ix[:, '5/30/2012':, :].to_frame()
+stacked
+
+
+# In[46]:
+
+stacked.to_panel()
+
+
+# In[47]:
 
 imports = get_ipython().magic('imports_')
 get_ipython().magic('watermark -u -d -v -p $imports')
