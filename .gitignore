@@ -3,4 +3,9 @@ pydata-book/
 some_array.npy
 array_archive.npz
 array_ex.txt
+data.xls
+frame_pickle
+mydata.h5
+out.csv
+tseries.csv
 
