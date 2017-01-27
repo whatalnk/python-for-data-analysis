@@ -3,24 +3,24 @@
 
 # # Data Loading, Storage, and File Formats
 
-# In[74]:
+# In[1]:
 
 get_ipython().magic('load_ext watermark')
 get_ipython().magic('watermark -u -d -v')
 
 
-# In[75]:
+# In[2]:
 
 import datetime
 datetime.datetime.today().strftime("%Y-%m-%d %H:%M:%S")
 
 
-# In[63]:
+# In[3]:
 
 get_ipython().magic('matplotlib inline')
 
 
-# In[64]:
+# In[4]:
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -490,12 +490,212 @@ root.text
 
 # ## Binary Data Formats
 
-# In[76]:
+# In[5]:
+
+frame = pd.read_csv('pydata-book/ch06/ex1.csv')
+frame
+
+
+# In[7]:
+
+# frame.save()
+frame.to_pickle('frame_pickle')
+
+
+# In[8]:
+
+# pd.load()
+pd.read_pickle('frame_pickle')
+
+
+# ### Using HDF5 Format
+
+# `conda install pytables`
+
+# In[11]:
+
+store = pd.HDFStore('mydata.h5')
+store
+
+
+# In[12]:
+
+store['obj1'] = frame
+store['obj1_col'] = frame['a']
+store
+
+
+# In[13]:
+
+store['obj1']
+
+
+# ### Reading Microsoft Excel Files
+
+# `conda install xlrd`
+
+# In[15]:
+
+xls_file = pd.ExcelFile('data.xls')
+xls_file
+
+
+# In[16]:
+
+xls_file.sheet_names
+
+
+# In[17]:
+
+table = xls_file.parse('Sheet1')
+table
+
+
+# ## Interacting with HTML and Web APIs
+
+# In[18]:
+
+import requests
+
+
+# In[19]:
+
+url = 'https://api.github.com/repos/pydata/pandas/milestones/28/labels'
+resp = requests.get(url)
+resp
+
+
+# In[20]:
+
+data = resp.json()
+data[:5]
+
+
+# In[21]:
+
+issue_labels = DataFrame(data)
+issue_labels
+
+
+# In[23]:
+
+issue_labels.ix[7]
+
+
+# ## Interacting with Databases
+
+# In[24]:
+
+import sqlite3
+
+
+# In[25]:
+
+query = """
+CREATE TABLE test
+(a VARCHAR(20), b VARCHAR(20),
+c REAL, d INTEGER
+);"""
+con = sqlite3.connect(':memory:')
+con.execute(query)
+con.commit()
+
+
+# In[26]:
+
+data = [('Atlanta', 'Georgia', 1.25, 6),
+('Tallahassee', 'Florida', 2.6, 3),
+('Sacramento', 'California', 1.7, 5)]
+stmt = "INSERT INTO test VALUES(?, ?, ?, ?)"
+con.executemany(stmt, data)
+con.commit()
+
+
+# In[27]:
+
+cursor = con.execute('select * from test')
+rows = cursor.fetchall()
+rows
+
+
+# In[28]:
+
+cursor.description
+
+
+# [Python3] zip はlistにする
+# http://stackoverflow.com/questions/27431390/typeerror-zip-object-is-not-subscriptable#27431433
+
+# In[30]:
+
+DataFrame(rows, columns=list(zip(*cursor.description))[0])
+
+
+# In[31]:
+
+pd.read_sql('select * from test', con)
+
+
+# In[32]:
+
+con.close()
+
+
+# ### Storing and Loading Data in MongoDB
+
+# In[34]:
+
+import pymongo
+
+
+# In[36]:
+
+# con = pymongo. Connection('localhost', port=27017)
+con = pymongo.MongoClient('localhost', port=27017)
+tweets = con.db.tweets
+
+
+# In[37]:
+
+import requests, json
+
+
+# Twitter は API 変更
+
+# In[38]:
+
+url = 'http://search.twitter.com/search.json?q=python%20pandas'
+data = json.loads(requests.get(url).text)
+
+
+# In[40]:
+
+data
+
+
+# In[ ]:
+
+for tweet in data['results']:
+    tweets.save(tweet)
+
+
+# In[ ]:
+
+cursor = tweets.find({'from_user': 'wesmckinn'})
+
+
+# In[ ]:
+
+tweet_fields = ['created_at', 'from_user', 'id', 'text']
+result = DataFrame(list(cursor), columns=tweet_fields)
+
+
+# In[41]:
 
 datetime.datetime.today().strftime("%Y-%m-%d %H:%M:%S")
 
 
-# In[78]:
+# In[42]:
 
 imports = get_ipython().magic('imports_')
 get_ipython().magic('watermark -u -d -v -p $imports')

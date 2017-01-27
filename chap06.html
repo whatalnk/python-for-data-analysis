@@ -11757,7 +11757,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
@@ -11774,7 +11774,7 @@ div#notebook {
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>last updated: 2017-01-26 
+<pre>last updated: 2017-01-27 
 
 CPython 3.5.2
 IPython 5.1.0
@@ -11788,7 +11788,7 @@ IPython 5.1.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
@@ -11803,11 +11803,11 @@ IPython 5.1.0
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[75]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;2017-01-26 21:14:19&#39;</pre>
+<pre>&#39;2017-01-27 15:05:07&#39;</pre>
 </div>
 
 </div>
@@ -11818,7 +11818,7 @@ IPython 5.1.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -11831,7 +11831,7 @@ IPython 5.1.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -39747,7 +39747,1292 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;pydata-book/ch06/ex1.csv&#39;</span><span class="p">)</span>
+<span class="n">frame</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+      <th>message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>hello</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>world</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+      <td>foo</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># frame.save()</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;frame_pickle&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># pd.load()</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;frame_pickle&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+      <th>message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>hello</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>world</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+      <td>foo</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Using-HDF5-Format">Using HDF5 Format<a class="anchor-link" href="#Using-HDF5-Format">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>conda install pytables</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">store</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">HDFStore</span><span class="p">(</span><span class="s1">&#39;mydata.h5&#39;</span><span class="p">)</span>
+<span class="n">store</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;class &#39;pandas.io.pytables.HDFStore&#39;&gt;
+File path: mydata.h5
+Empty</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">store</span><span class="p">[</span><span class="s1">&#39;obj1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span>
+<span class="n">store</span><span class="p">[</span><span class="s1">&#39;obj1_col&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+<span class="n">store</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;class &#39;pandas.io.pytables.HDFStore&#39;&gt;
+File path: mydata.h5
+/obj1                frame        (shape-&gt;[3,5])
+/obj1_col            series       (shape-&gt;[3])  </pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">store</span><span class="p">[</span><span class="s1">&#39;obj1&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+      <th>message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>hello</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>world</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+      <td>foo</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Reading-Microsoft-Excel-Files">Reading Microsoft Excel Files<a class="anchor-link" href="#Reading-Microsoft-Excel-Files">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>conda install xlrd</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xls_file</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="s1">&#39;data.xls&#39;</span><span class="p">)</span>
+<span class="n">xls_file</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;pandas.io.excel.ExcelFile at 0x21701542748&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xls_file</span><span class="o">.</span><span class="n">sheet_names</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;Sheet1&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="n">xls_file</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;Sheet1&#39;</span><span class="p">)</span>
+<span class="n">table</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>4</td>
+      <td>aa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>5</td>
+      <td>bb</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>6</td>
+      <td>cc</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Interacting-with-HTML-and-Web-APIs">Interacting with HTML and Web APIs<a class="anchor-link" href="#Interacting-with-HTML-and-Web-APIs">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://api.github.com/repos/pydata/pandas/milestones/28/labels&#39;</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">resp</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;Response [200]&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[{&#39;color&#39;: &#39;e10c02&#39;,
+  &#39;default&#39;: False,
+  &#39;id&#39;: 76811,
+  &#39;name&#39;: &#39;Bug&#39;,
+  &#39;url&#39;: &#39;https://api.github.com/repos/pandas-dev/pandas/labels/Bug&#39;},
+ {&#39;color&#39;: &#39;4E9A06&#39;,
+  &#39;default&#39;: False,
+  &#39;id&#39;: 76812,
+  &#39;name&#39;: &#39;Enhancement&#39;,
+  &#39;url&#39;: &#39;https://api.github.com/repos/pandas-dev/pandas/labels/Enhancement&#39;},
+ {&#39;color&#39;: &#39;FCE94F&#39;,
+  &#39;default&#39;: False,
+  &#39;id&#39;: 127681,
+  &#39;name&#39;: &#39;Refactor&#39;,
+  &#39;url&#39;: &#39;https://api.github.com/repos/pandas-dev/pandas/labels/Refactor&#39;},
+ {&#39;color&#39;: &#39;75507B&#39;,
+  &#39;default&#39;: False,
+  &#39;id&#39;: 129350,
+  &#39;name&#39;: &#39;Build&#39;,
+  &#39;url&#39;: &#39;https://api.github.com/repos/pandas-dev/pandas/labels/Build&#39;},
+ {&#39;color&#39;: &#39;3465A4&#39;,
+  &#39;default&#39;: False,
+  &#39;id&#39;: 134699,
+  &#39;name&#39;: &#39;Docs&#39;,
+  &#39;url&#39;: &#39;https://api.github.com/repos/pandas-dev/pandas/labels/Docs&#39;}]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">issue_labels</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">issue_labels</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>color</th>
+      <th>default</th>
+      <th>id</th>
+      <th>name</th>
+      <th>url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>e10c02</td>
+      <td>False</td>
+      <td>76811</td>
+      <td>Bug</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4E9A06</td>
+      <td>False</td>
+      <td>76812</td>
+      <td>Enhancement</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>FCE94F</td>
+      <td>False</td>
+      <td>127681</td>
+      <td>Refactor</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>75507B</td>
+      <td>False</td>
+      <td>129350</td>
+      <td>Build</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3465A4</td>
+      <td>False</td>
+      <td>134699</td>
+      <td>Docs</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>729FCF</td>
+      <td>False</td>
+      <td>233160</td>
+      <td>Groupby</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>06909A</td>
+      <td>False</td>
+      <td>2301354</td>
+      <td>Data IO</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8AE234</td>
+      <td>False</td>
+      <td>2413328</td>
+      <td>Visualization</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0b02e1</td>
+      <td>False</td>
+      <td>2822098</td>
+      <td>Indexing</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>d7e102</td>
+      <td>False</td>
+      <td>2822342</td>
+      <td>Missing-data</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>a10c02</td>
+      <td>False</td>
+      <td>8935311</td>
+      <td>Performance</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>02d7e1</td>
+      <td>False</td>
+      <td>13098779</td>
+      <td>Reshaping</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>fbca04</td>
+      <td>False</td>
+      <td>29648920</td>
+      <td>Difficulty Novice</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>e102d8</td>
+      <td>False</td>
+      <td>31404521</td>
+      <td>Dtypes</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>DDDDDD</td>
+      <td>False</td>
+      <td>32933285</td>
+      <td>Note To Selves</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>AD7FA8</td>
+      <td>False</td>
+      <td>35818298</td>
+      <td>API Design</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>ffa0ff</td>
+      <td>False</td>
+      <td>42670965</td>
+      <td>Error Reporting</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>006b75</td>
+      <td>False</td>
+      <td>47223669</td>
+      <td>Numeric</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>5319e7</td>
+      <td>False</td>
+      <td>47229171</td>
+      <td>IO CSV</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>5319e7</td>
+      <td>False</td>
+      <td>47232590</td>
+      <td>IO SQL</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>a2bca7</td>
+      <td>False</td>
+      <td>48070600</td>
+      <td>CI</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>fbca04</td>
+      <td>False</td>
+      <td>49094459</td>
+      <td>Internals</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>5319e7</td>
+      <td>False</td>
+      <td>49597148</td>
+      <td>Timedelta</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>0052cc</td>
+      <td>False</td>
+      <td>53181044</td>
+      <td>Frequency</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>fbca04</td>
+      <td>False</td>
+      <td>57186974</td>
+      <td>Windows</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>eb6420</td>
+      <td>False</td>
+      <td>57296398</td>
+      <td>Algos</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>5319e7</td>
+      <td>False</td>
+      <td>60458168</td>
+      <td>Timezones</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>eb6420</td>
+      <td>False</td>
+      <td>60635328</td>
+      <td>Period</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>207de5</td>
+      <td>False</td>
+      <td>71268330</td>
+      <td>MultiIndex</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>e11d21</td>
+      <td>False</td>
+      <td>78527356</td>
+      <td>Categorical</td>
+      <td>https://api.github.com/repos/pandas-dev/pandas...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">issue_labels</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[23]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>color                                                 8AE234
+default                                                False
+id                                                   2413328
+name                                           Visualization
+url        https://api.github.com/repos/pandas-dev/pandas...
+Name: 7, dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Interacting-with-Databases">Interacting with Databases<a class="anchor-link" href="#Interacting-with-Databases">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">CREATE TABLE test</span>
+<span class="s2">(a VARCHAR(20), b VARCHAR(20),</span>
+<span class="s2">c REAL, d INTEGER</span>
+<span class="s2">);&quot;&quot;&quot;</span>
+<span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;:memory:&#39;</span><span class="p">)</span>
+<span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Atlanta&#39;</span><span class="p">,</span> <span class="s1">&#39;Georgia&#39;</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;Tallahassee&#39;</span><span class="p">,</span> <span class="s1">&#39;Florida&#39;</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;Sacramento&#39;</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
+<span class="n">stmt</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO test VALUES(?, ?, ?, ?)&quot;</span>
+<span class="n">con</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cursor</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;select * from test&#39;</span><span class="p">)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="n">rows</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(&#39;Atlanta&#39;, &#39;Georgia&#39;, 1.25, 6),
+ (&#39;Tallahassee&#39;, &#39;Florida&#39;, 2.6, 3),
+ (&#39;Sacramento&#39;, &#39;California&#39;, 1.7, 5)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">description</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[28]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>((&#39;a&#39;, None, None, None, None, None, None),
+ (&#39;b&#39;, None, None, None, None, None, None),
+ (&#39;c&#39;, None, None, None, None, None, None),
+ (&#39;d&#39;, None, None, None, None, None, None))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[Python3] zip はlistにする
+<a href="http://stackoverflow.com/questions/27431390/typeerror-zip-object-is-not-subscriptable#27431433">http://stackoverflow.com/questions/27431390/typeerror-zip-object-is-not-subscriptable#27431433</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">cursor</span><span class="o">.</span><span class="n">description</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Atlanta</td>
+      <td>Georgia</td>
+      <td>1.25</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tallahassee</td>
+      <td>Florida</td>
+      <td>2.60</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sacramento</td>
+      <td>California</td>
+      <td>1.70</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;select * from test&#39;</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[31]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Atlanta</td>
+      <td>Georgia</td>
+      <td>1.25</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tallahassee</td>
+      <td>Florida</td>
+      <td>2.60</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sacramento</td>
+      <td>California</td>
+      <td>1.70</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Storing-and-Loading-Data-in-MongoDB">Storing and Loading Data in MongoDB<a class="anchor-link" href="#Storing-and-Loading-Data-in-MongoDB">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pymongo</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># con = pymongo. Connection(&#39;localhost&#39;, port=27017)</span>
+<span class="n">con</span> <span class="o">=</span> <span class="n">pymongo</span><span class="o">.</span><span class="n">MongoClient</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">27017</span><span class="p">)</span>
+<span class="n">tweets</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">tweets</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Twitter は API 変更</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://search.twitter.com/search.json?q=python%20pandas&#39;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[40]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;errors&#39;: [{&#39;code&#39;: 64,
+   &#39;message&#39;: &#39;The Twitter REST API v1 is no longer active. Please migrate to API v1.1. https://dev.twitter.com/docs/api/1.1/overview.&#39;}]}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">]:</span>
+    <span class="n">tweets</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">tweet</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cursor</span> <span class="o">=</span> <span class="n">tweets</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s1">&#39;from_user&#39;</span><span class="p">:</span> <span class="s1">&#39;wesmckinn&#39;</span><span class="p">})</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tweet_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;from_user&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">cursor</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">tweet_fields</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
@@ -39761,11 +41046,11 @@ dtype: int64</pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[76]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[41]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;2017-01-26 21:14:26&#39;</pre>
+<pre>&#39;2017-01-27 15:37:26&#39;</pre>
 </div>
 
 </div>
@@ -39776,7 +41061,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[78]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">imports</span> <span class="o">=</span> <span class="o">%</span><span class="k">imports_</span>
@@ -39793,16 +41078,19 @@ dtype: int64</pre>
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>last updated: 2017-01-26 
+<pre>last updated: 2017-01-27 
 
 CPython 3.5.2
 IPython 5.1.0
 
 matplotlib 1.5.3
-datetime n
-lxml n
 numpy 1.11.3
 pandas 0.19.2
+json 2.0.9
+requests 2.12.4
+sqlite3 2.6.0
+datetime n
+pymongo 3.3.0
 </pre>
 </div>
 </div>
